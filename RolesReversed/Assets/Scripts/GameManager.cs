@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     }
     private void GenerateLevel()
     {
-        if(score == 0)
+        if (score == 0)
         {
             // first level should always be roughly the same difficulty
             Instantiate(frogPrefab, new Vector3(Random.Range(-5f, 5f), -5, frogPrefab.transform.position.z), Quaternion.identity);
@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
             Instantiate(frogPrefab, new Vector3(Random.Range(-5f, 5f), -5, frogPrefab.transform.position.z), Quaternion.identity);
             amountOfFrogs++;
             int frogOdds = Random.Range(0, 10);
+            print("frogOdds" + frogOdds);
             if (frogOdds < 6)
             {
                 Instantiate(frogPrefab, new Vector3(Random.Range(-5f, 5f), -5, frogPrefab.transform.position.z), Quaternion.identity);
@@ -62,6 +63,10 @@ public class GameManager : MonoBehaviour
             }
 
             // streetlights
+            if (frogOdds > 3)
+            {
+                Instantiate(streetLightPrefab, new Vector3(Random.Range(-1f, 2f), 0, streetLightPrefab.transform.position.z), Quaternion.identity);
+            }
 
             // humans
 
@@ -82,5 +87,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    
 
 }
