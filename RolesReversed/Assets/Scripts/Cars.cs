@@ -45,7 +45,8 @@ public class Cars : MonoBehaviour
     private void MovementLogic()
     {
         // Moving
-        MoveForce += transform.up * MoveSpeed * Input.GetAxis("Vertical") * Time.deltaTime;
+        //MoveForce += transform.up * MoveSpeed * Time.deltaTime;
+        MoveForce += transform.up * MoveSpeed * Input.GetAxis("Vertical") * Time.deltaTime; // this line if we want the player to be able to control all axis
         transform.position += new Vector3(MoveForce.x, MoveForce.y) * Time.deltaTime;
 
         // Steering
