@@ -19,6 +19,7 @@ public class GameOverManager : MonoBehaviour
        if(Input.GetKeyDown(KeyCode.R)) 
         {
             //Change Scene Here
+            SceneManager.LoadScene("MainGame");
         }
     }
 }
