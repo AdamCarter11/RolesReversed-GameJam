@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -108,7 +108,322 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: DirtyCarSpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 2
+        width: 24
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b9c1461d5f5f0945aab571ef4ad463f
+      internalID: -1575138998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DirtyCarSpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 2
+        width: 24
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9785361b4f307074f87ee0758c76be13
+      internalID: -1465517534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DirtyCarSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 2
+        width: 24
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 272997c43877d9546806c320571e7b9f
+      internalID: -121600286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DirtyCarSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 2
+        width: 24
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5208ee4d8004ce14fa125bc9b27dfb90
+      internalID: 255835161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DirtyCarSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 2
+        width: 24
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84ea3fa800cc1f3498a82eaabed8bdc9
+      internalID: 153900390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DirtyCarSpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 2
+        width: 24
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 214ea74fef909724fa6b7d8e95ce75a9
+      internalID: -2108201866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DirtyCarSpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 2
+        width: 24
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2c49f44a1bdcb6439bea8a063d97c5e
+      internalID: -693848651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DirtyCarSpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 2
+        width: 24
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e64372549d1c1447b843af714e14fea
+      internalID: 2052345771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DirtyCarSpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 2
+        width: 24
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2495dd74243ffa146867e62356063fd5
+      internalID: -41142845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DirtyCarSpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 2
+        width: 24
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2317fea9a438592418d8ccb5a791cd69
+      internalID: 1976451767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DirtyCarSpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 2
+        width: 24
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32a837557fcd5f345b70bcad3793f586
+      internalID: -1232794766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DirtyCarSpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 2
+        width: 24
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f5bf93f7da1a134da42043b025c4468
+      internalID: 783369406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DirtyCarSpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 2
+        width: 24
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d7a5875496de1e48ada4082bd13c2d1
+      internalID: 140545155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DirtyCarSpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 2
+        width: 24
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4829f0a1a5dfff48b7253e65d6c3071
+      internalID: -959855002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DirtyCarSpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 2
+        width: 24
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d19a9fab6e1dd2409c36d4f5d215fec
+      internalID: 439780741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +434,22 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      DirtyCarSpriteSheet_0: -1575138998
+      DirtyCarSpriteSheet_1: -1465517534
+      DirtyCarSpriteSheet_10: -1232794766
+      DirtyCarSpriteSheet_11: 783369406
+      DirtyCarSpriteSheet_12: 140545155
+      DirtyCarSpriteSheet_13: -959855002
+      DirtyCarSpriteSheet_14: 439780741
+      DirtyCarSpriteSheet_2: -121600286
+      DirtyCarSpriteSheet_3: 255835161
+      DirtyCarSpriteSheet_4: 153900390
+      DirtyCarSpriteSheet_5: -2108201866
+      DirtyCarSpriteSheet_6: -693848651
+      DirtyCarSpriteSheet_7: 2052345771
+      DirtyCarSpriteSheet_8: -41142845
+      DirtyCarSpriteSheet_9: 1976451767
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
