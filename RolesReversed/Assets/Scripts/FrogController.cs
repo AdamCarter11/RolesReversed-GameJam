@@ -10,9 +10,9 @@ public class FrogController : MonoBehaviour
 
     private void Start()
     {
-        moveTime = Random.Range(0.3f,0.6f);
-        pauseTime = Random.Range(0.9f, 1.3f);
-        print("movetime " + moveTime + " pauseTime " + pauseTime);
+        moveTime = Random.Range(0.3f,1.2f);
+        pauseTime = Random.Range(0.5f, 1.5f);
+        //print("movetime " + moveTime + " pauseTime " + pauseTime);
         StartCoroutine(movePause());
     }
 
@@ -42,6 +42,12 @@ public class FrogController : MonoBehaviour
         while (elapsedTime < moveTime)
         {
             transform.position = Vector3.Lerp(origPos, targetPos, (elapsedTime/moveTime));
+            if(transform.position.y >= 5)
+            {
+                GameManager.instance.health--;
+                GameManager.instance.amountOfFrogs--;
+                Destroy(this.gameObject);
+            }
             elapsedTime += Time.deltaTime;
             yield return null;
         }

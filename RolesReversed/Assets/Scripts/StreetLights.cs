@@ -46,7 +46,8 @@ public class StreetLights : MonoBehaviour
             playerIsIn = false;
             if (!turnsGreen && collision.transform.position.x > transform.position.x)
             {
-                print("Run red lights:-1 HP");
+                GameManager.instance.health--;
+                //print("Run red lights:-1 HP");
                 //minus health
             }
         }

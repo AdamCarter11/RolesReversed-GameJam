@@ -27,8 +27,11 @@ public class Cars : MonoBehaviour
     private LineRenderer rearLeftStreakLine;
     private LineRenderer rearRightStreakLine;
 
+    private GameManager gameManager;
+
     void Start()
     {
+        gameManager = GameManager.instance;
         // setup lines for skid marks
         InitialLineSetup();
         previousPosition = this.transform.position;
@@ -52,8 +55,8 @@ public class Cars : MonoBehaviour
     private void FixedUpdate()
     {
         MovementLogic();
-        PositionCorrection();
-        previousPosition = this.transform.position;
+        //PositionCorrection();
+        //previousPosition = this.transform.position;
     }
 
     private void PositionCorrection()
@@ -69,18 +72,44 @@ public class Cars : MonoBehaviour
         }
     }
 
+    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Frog"))
+        {
+            Destroy(collision.gameObject);
+            gameManager.amountOfFrogs--;
+        }
+    }
+    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Frog"))
+        {
+            Destroy(collision.gameObject);
+            gameManager.amountOfFrogs--;
+        }
+    }
+
     #region Movement Logic
     private void MovementLogic()
     {
         // Moving
         //MoveForce += transform.up * MoveSpeed * Time.deltaTime;
-        MoveForce += transform.up * MoveSpeed * Input.GetAxis("Vertical") * Time.deltaTime; // this line if we want the player to be able to control all axis
+        float forwardForce = Input.GetAxis("Vertical");
+        if(forwardForce < 0)
+        {
+            forwardForce = 0;
+            //MoveForce = new Vector3(0, 0, 0); // if we want stopping 
+        }
+        MoveForce += transform.up * MoveSpeed * forwardForce * Time.deltaTime; // this line if we want the player to be able to control all axis
         transform.position += new Vector3(MoveForce.x, MoveForce.y) * Time.deltaTime;
+        print("car pos: " + transform.position);
 
         // Steering
         
         steerInput = Input.GetAxis("Horizontal");
-        print(steerInput);
+        //print(steerInput);
         Vector3 turnVal = Vector3.forward * -steerInput * MoveForce.magnitude * SteerAngle * Time.deltaTime;
         //print(turnVal);
         transform.Rotate(turnVal);
@@ -95,27 +124,6 @@ public class Cars : MonoBehaviour
         clampedZRotation = Mathf.Clamp(clampedZRotation, 180f, 360f);
         eulerAngle.z = clampedZRotation;
         transform.eulerAngles = eulerAngle;
-        /*
-        if (transform.rotation.z > -150 && transform.rotation.z < 0)
-        {
-            Vector3 turnVal = Vector3.forward * -steerInput * MoveForce.magnitude * SteerAngle * Time.deltaTime;
-            //print(turnVal);
-            transform.Rotate(turnVal);
-        }
-        
-        if(transform.rotation.z <= -150 && steerInput < 0) 
-        {
-            Vector3 turnVal = Vector3.forward * -steerInput * MoveForce.magnitude * SteerAngle * Time.deltaTime;
-            //print(turnVal);
-            transform.Rotate(turnVal);
-        }
-        if (transform.rotation.z >= 0 && steerInput > 0)
-        {
-            Vector3 turnVal = Vector3.forward * -steerInput * MoveForce.magnitude * SteerAngle * Time.deltaTime;
-            //print(turnVal);
-            transform.Rotate(turnVal);
-        }
-        */
 
         // Drag and max speed limit
         MoveForce *= Drag;
@@ -123,6 +131,10 @@ public class Cars : MonoBehaviour
 
         // Traction
         MoveForce = Vector2.Lerp(MoveForce.normalized, transform.up, Traction * Time.deltaTime) * MoveForce.magnitude;
+    }
+    public void MoveForceReset()
+    {
+        MoveForce = new Vector3(0, 0, 0);
     }
     #endregion
 
@@ -162,8 +174,8 @@ public class Cars : MonoBehaviour
         if (isDrifting)
         {
             Vector3 currentPoint = transform.position;
-            Vector3 rearLeftPoint = currentPoint - transform.right * 0.5f - transform.up * 0.5f;
-            Vector3 rearRightPoint = currentPoint + transform.right * 0.5f - transform.up * 0.5f;
+            Vector3 rearLeftPoint = currentPoint - transform.right * 0.6f - transform.up * 0.9f;
+            Vector3 rearRightPoint = currentPoint + transform.right * 0.6f - transform.up * 0.9f;
 
             if (rearLeftStreakPoints.Count > 0)
             {
@@ -240,6 +252,19 @@ public class Cars : MonoBehaviour
         streakPoints.RemoveRange(0, clearAmount);
         streakLine.positionCount = streakPoints.Count;
         streakLine.SetPositions(streakPoints.ToArray());
+    }
+    private void ClearAll(List<Vector3> streakPoints, LineRenderer streakLine)
+    {
+        if (streakPoints.Count == 0)
+            return;
+
+        streakPoints.Clear();
+        streakLine.positionCount = 0;
+    }
+    public void ClearHelper()
+    {
+        ClearAll(rearLeftStreakPoints, rearLeftStreakLine);
+        ClearAll(rearRightStreakPoints, rearRightStreakLine);
     }
     #endregion
 }

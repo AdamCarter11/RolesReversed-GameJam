@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GoodCreep
   - BadCreep
+  - Frog
   layers:
   - Default
   - TransparentFX
