@@ -41,12 +41,26 @@ public class GameManager : MonoBehaviour
     {
         score = 0;
         health = 3;
+        SceneManager.sceneLoaded += OnSceneLoaded;
         GenerateLevel();
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        print("load scene");
+        if(SceneManager.GetActiveScene().name == "MainScene")
+        {
+            if (carObj == null)
+            {
+                carObj = GameObject.FindGameObjectWithTag("Player");
+            }
+            GenerateStuff();
+        }
     }
     private void GenerateLevel()
     {
-        if (score == 0)
+        if (score == 0 && health == 3)
         {
+            print("GENERATE INITIAL FROG");
             // first level should always be roughly the same difficulty
             amountOfFrogs++;
             scoreIncrease++;
@@ -54,6 +68,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            print("NEW FROGS");
             // streetlights
             /*
             int streetLightOdds = Random.Range(0, 10);
@@ -123,8 +138,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        print(amountOfFrogs);
-        if(health <= 0)
+        //print(amountOfFrogs);
+        if(health <= 0  && SceneManager.GetActiveScene().name == "MainScene")
         {
             // gameover
 
@@ -173,6 +188,7 @@ public class GameManager : MonoBehaviour
         }
         if (amountOfFrogs <= 0)
         {
+            carObj = GameObject.FindGameObjectWithTag("Player");
             score += scoreIncrease;
             scoreIncrease = 0;
             carObj.GetComponent<Cars>().IncreaseSpeed();
@@ -184,6 +200,9 @@ public class GameManager : MonoBehaviour
     }
     public void GenerateStuff()
     {
+        print("STUFF");
+        carObj = GameObject.FindGameObjectWithTag("Player");
+        print(carObj.name);
         carObj.GetComponent<Cars>().ClearHelper();
 
         GenerateLevel();
@@ -195,5 +214,8 @@ public class GameManager : MonoBehaviour
         score = 0;
         health = 3;
         frogsDestroyed = 0;
+        offset = 0;
+        amountOfFrogs = 0;
+        scoreIncrease = 0;
     }
 }

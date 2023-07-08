@@ -21,7 +21,7 @@ public class GameOverManager : MonoBehaviour
             //Change Scene Here
             GameManager.instance.ResetVars();
             SceneManager.LoadScene("MainScene");
-            GameManager.instance.GenerateStuff();
+            //GameManager.instance.GenerateStuff();
         }
     }
 }
