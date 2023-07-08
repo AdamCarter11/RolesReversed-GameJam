@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 
 public class Cars : MonoBehaviour
@@ -34,11 +35,21 @@ public class Cars : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (transform.rotation.z > -180 )
+        {
+
+        }
         // Movement
-        MovementLogic();
+
 
         // Streak effect
         StreakMarkLogic();
+
+        //Mathf.Clamp(transform.rotation.z, -180, 0);
+    }
+    private void FixedUpdate()
+    {
+        MovementLogic();
     }
 
     #region Movement Logic
@@ -50,8 +61,44 @@ public class Cars : MonoBehaviour
         transform.position += new Vector3(MoveForce.x, MoveForce.y) * Time.deltaTime;
 
         // Steering
+        
         steerInput = Input.GetAxis("Horizontal");
-        transform.Rotate(Vector3.forward * -steerInput * MoveForce.magnitude * SteerAngle * Time.deltaTime);
+        print(steerInput);
+        Vector3 turnVal = Vector3.forward * -steerInput * MoveForce.magnitude * SteerAngle * Time.deltaTime;
+        //print(turnVal);
+        transform.Rotate(turnVal);
+        Vector3 eulerAngle = transform.eulerAngles;
+
+        float clampedZRotation = eulerAngle.z;
+
+        if (clampedZRotation < 100)
+        {
+            clampedZRotation += 360f;
+        }
+        clampedZRotation = Mathf.Clamp(clampedZRotation, 180f, 360f);
+        eulerAngle.z = clampedZRotation;
+        transform.eulerAngles = eulerAngle;
+        /*
+        if (transform.rotation.z > -150 && transform.rotation.z < 0)
+        {
+            Vector3 turnVal = Vector3.forward * -steerInput * MoveForce.magnitude * SteerAngle * Time.deltaTime;
+            //print(turnVal);
+            transform.Rotate(turnVal);
+        }
+        
+        if(transform.rotation.z <= -150 && steerInput < 0) 
+        {
+            Vector3 turnVal = Vector3.forward * -steerInput * MoveForce.magnitude * SteerAngle * Time.deltaTime;
+            //print(turnVal);
+            transform.Rotate(turnVal);
+        }
+        if (transform.rotation.z >= 0 && steerInput > 0)
+        {
+            Vector3 turnVal = Vector3.forward * -steerInput * MoveForce.magnitude * SteerAngle * Time.deltaTime;
+            //print(turnVal);
+            transform.Rotate(turnVal);
+        }
+        */
 
         // Drag and max speed limit
         MoveForce *= Drag;
