@@ -25,7 +25,7 @@ public class UIManager : MonoBehaviour
             lineNum++;
             if(lineNum == 1) 
             {
-                dialogueText.text = "Since We Lost The First Great Frog War In August of 1981 The World Has Gone To <color = red> Shit </color> .";
+                dialogueText.text = "Since We Lost The First Great Frog War In August of 1981 The World Has Gone To Shit.";
                 StopAllCoroutines();
                 StartCoroutine(DisplayLine(dialogueText.text));
             }
@@ -61,6 +61,11 @@ public class UIManager : MonoBehaviour
                 notificationSound.Play();
             }
             yield return new WaitForSeconds(typingSpeed);
+            
+        }
+        if (lineNum == 1)
+        {
+            dialogueText.text = "Since We Lost The First Great Frog War In August of 1981 The World Has Gone To <color=red>Shit</color>.";
         }
     }
 }
