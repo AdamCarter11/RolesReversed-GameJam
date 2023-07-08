@@ -62,22 +62,29 @@ public class GameManager : MonoBehaviour
             */
 
             // frog(s)
-            SpawnFrog();
+            SpawnObjects(frogPrefab);
             int frogOdds = Random.Range(0, 10);
             //print("frogOdds" + frogOdds);
             if (frogOdds < 6)
             {
-                SpawnFrog();
+                SpawnObjects(frogPrefab);
                 if (frogOdds < 3)
                 {
-                    SpawnFrog();
+                    SpawnObjects(frogPrefab);
                 }
             }
 
             // humans
+            int humanOdds = Random.Range(0, 10);
+            if (humanOdds < 10)
+            {
+                SpawnObjects(humanPrefab);
+            }
+            
+
         }
     }
-    void SpawnFrog()
+    void SpawnObjects(GameObject ObjectToSpawn)
     {
         if (amountOfFrogs >= 3) // Limit the number of frogs
             return;
@@ -95,7 +102,7 @@ public class GameManager : MonoBehaviour
 
         if (colliders.Length == 0) // No overlapping objects found
         {
-            Instantiate(frogPrefab, spawnPosition, Quaternion.identity);
+            Instantiate(ObjectToSpawn, spawnPosition, Quaternion.identity);
             amountOfFrogs++;
         }
     }

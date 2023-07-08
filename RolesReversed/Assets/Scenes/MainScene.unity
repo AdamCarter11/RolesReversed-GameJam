@@ -235,7 +235,7 @@ MonoBehaviour:
   offset: 0
   frogsDestroyed: 0
   frogPrefab: {fileID: 3028682529931391021, guid: 020af0dd4cd7d344cb75373c3df8ce12, type: 3}
-  humanPrefab: {fileID: 0}
+  humanPrefab: {fileID: 5826261771705934238, guid: e3203bee1f832cc4eac385ca32bf8ef7, type: 3}
   streetLightPrefab: {fileID: 2701401871100077847, guid: b461ea616bd9ac146b351c257e84c6e9, type: 3}
   carObj: {fileID: 1186577390}
   spawnRange: 15
