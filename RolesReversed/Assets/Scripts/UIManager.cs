@@ -25,7 +25,7 @@ public class UIManager : MonoBehaviour
             lineNum++;
             if(lineNum == 1) 
             {
-                dialogueText.text = "Since We Lost The First Great Frog War In August of 1981 The World Has Gone To Shit.";
+                dialogueText.text = "Since We Lost The First Great Frog War In August of 1981 The World Has Gone To <color = red>Shit</color>.";
                 StopAllCoroutines();
                 StartCoroutine(DisplayLine(dialogueText.text));
             }
