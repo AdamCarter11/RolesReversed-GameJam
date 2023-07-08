@@ -7,10 +7,13 @@ using UnityEngine.SceneManagement;
 public class GameOverManager : MonoBehaviour
 {
     [SerializeField] Text highscoreText;
+    [SerializeField] Text frogText;
     // Start is called before the first frame update
     void Start()
     {
+        PlayerPrefs.SetInt("FrogScore", PlayerPrefs.GetInt("FrogScore") + 1);
         highscoreText.text =  "Highscore: " + PlayerPrefs.GetInt("HighScore");
+        frogText.text = "FROGS: " + PlayerPrefs.GetInt("FrogScore");
     }
 
     // Update is called once per frame
