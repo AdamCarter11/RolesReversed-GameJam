@@ -132,8 +132,9 @@ public class GameManager : MonoBehaviour
     Vector3 GetRandomSpawnPosition()
     {
         float randoX = Random.Range(-8f, spawnRange) + offset;
+        float randoY = Random.Range(-8f, -2.5f);
         //print("frog x: " + randoX);
-        return new Vector3(randoX, spawnHeight, frogPrefab.transform.position.z);
+        return new Vector3(randoX, randoY, frogPrefab.transform.position.z);
     }
 
     private void Update()
