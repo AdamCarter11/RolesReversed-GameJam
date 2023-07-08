@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] Text dialogueText;
+    [SerializeField] Text highscoreText;
     private float typingSpeed = 0.04f;
     [SerializeField] AudioSource notificationSound;
     private int lineNum = 0;
@@ -15,11 +16,14 @@ public class UIManager : MonoBehaviour
     {
         dialogueText.text = "Welcome To The Frontlines Soldier. Are You Ready To Serve Your Country?";
         StartCoroutine(DisplayLine(dialogueText.text));
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        highscoreText.text = "Highscore: " + PlayerPrefs.GetInt("HighScore");
+
         if (Input.anyKeyDown)
         {
             lineNum++;
