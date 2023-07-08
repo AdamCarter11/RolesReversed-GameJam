@@ -35,6 +35,9 @@ public class Cars : MonoBehaviour
     [SerializeField] ParticleSystem splatterRed;
     [SerializeField] ParticleSystem splatterRed2;
     [SerializeField] ParticleSystem splatterGreen;
+
+    [SerializeField] AudioSource frogSplat;
+    [SerializeField] AudioSource humanSplat;
     void Start()
     {
         gameManager = GameManager.instance;
@@ -107,6 +110,8 @@ public class Cars : MonoBehaviour
             gameManager.amountOfFrogs--;
             GameManager.instance.frogsDestroyed++;
             GetComponent<SpriteRenderer>().sprite = carSprites[GameManager.instance.frogsDestroyed];
+
+            frogSplat.Play();
             
         }
         if (collision.gameObject.CompareTag("Human"))
@@ -116,6 +121,8 @@ public class Cars : MonoBehaviour
 
             Destroy(collision.gameObject);
             GameManager.instance.health--;
+
+            humanSplat.Play();
         }
         if (collision.gameObject.CompareTag("endBound"))
         {
