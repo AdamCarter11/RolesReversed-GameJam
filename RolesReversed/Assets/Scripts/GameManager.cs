@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] float spawnRange = 5f; // Adjust the spawn range as needed
     [SerializeField] float spawnHeight = -5f; // Adjust the spawn height as needed
     GameObject streetLightObj;
+    private int scoreIncrease = 0;
     
 
     private void Start()
@@ -48,6 +49,7 @@ public class GameManager : MonoBehaviour
         {
             // first level should always be roughly the same difficulty
             amountOfFrogs++;
+            scoreIncrease++;
             Instantiate(frogPrefab, new Vector3(Random.Range(-8f, spawnRange) + offset, spawnHeight, frogPrefab.transform.position.z), Quaternion.identity);
         }
         else
@@ -103,19 +105,25 @@ public class GameManager : MonoBehaviour
         if (colliders.Length == 0) // No overlapping objects found
         {
             Instantiate(ObjectToSpawn, spawnPosition, Quaternion.identity);
-            amountOfFrogs++;
+            if(ObjectToSpawn.gameObject.name == "Frog")
+            {
+                amountOfFrogs++;
+                scoreIncrease++;
+            }
+                
         }
     }
 
     Vector3 GetRandomSpawnPosition()
     {
         float randoX = Random.Range(-8f, spawnRange) + offset;
-        print("frog x: " + randoX);
+        //print("frog x: " + randoX);
         return new Vector3(randoX, spawnHeight, frogPrefab.transform.position.z);
     }
 
     private void Update()
     {
+        print(amountOfFrogs);
         if(health <= 0)
         {
             // gameover
@@ -143,18 +151,30 @@ public class GameManager : MonoBehaviour
         {
             Destroy(obj);
         }
+        amountOfFrogs = 0;
+
+        GameObject[] humansWithTag = GameObject.FindGameObjectsWithTag("Human");
+
+        foreach (GameObject obj in humansWithTag)
+        {
+            Destroy(obj);
+        }
     }
     public void NextLevel()
     {
         if (amountOfFrogs > 0)
+        {
             health--;
+            scoreIncrease = 0;
+        } 
         if (streetLightObj != null)
         {
             Destroy(streetLightObj);
         }
         if (amountOfFrogs <= 0)
         {
-            score++;
+            score += scoreIncrease;
+            scoreIncrease = 0;
             carObj.GetComponent<Cars>().IncreaseSpeed();
 
         }

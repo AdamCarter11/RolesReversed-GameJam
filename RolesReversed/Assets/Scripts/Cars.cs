@@ -88,6 +88,7 @@ public class Cars : MonoBehaviour
     {
         MoveSpeed += .5f;
         MaxSpeed += .5f;
+        constantSpeed += .1f;
         cameraScript.speedIncrease += 1f;
     }
     
@@ -99,6 +100,11 @@ public class Cars : MonoBehaviour
             gameManager.amountOfFrogs--;
             GameManager.instance.frogsDestroyed++;
             GetComponent<SpriteRenderer>().sprite = carSprites[GameManager.instance.frogsDestroyed];
+        }
+        if (collision.gameObject.CompareTag("Human"))
+        {
+            Destroy(collision.gameObject);
+            GameManager.instance.health--;
         }
         if (collision.gameObject.CompareTag("endBound"))
         {
@@ -129,7 +135,7 @@ public class Cars : MonoBehaviour
         if(forwardForce < 0)
         {
             forwardForce = 0 + constantSpeed;
-            MoveForce = new Vector3(0, 0, 0); // if we want stopping 
+            //MoveForce = new Vector3(0, 0, 0); // if we want stopping 
         }
         MoveForce += transform.up * MoveSpeed * forwardForce * Time.deltaTime; // this line if we want the player to be able to control all axis
         transform.position += new Vector3(MoveForce.x, MoveForce.y) * Time.deltaTime;
