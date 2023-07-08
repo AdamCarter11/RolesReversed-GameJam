@@ -10,8 +10,8 @@ public class FrogController : MonoBehaviour
 
     private void Start()
     {
-        moveTime = Random.Range(0.3f,1.2f);
-        pauseTime = Random.Range(0.5f, 1.5f);
+        moveTime = Random.Range(0.4f,0.8f);
+        pauseTime = Random.Range(1f, 1.5f);
         //print("movetime " + moveTime + " pauseTime " + pauseTime);
         StartCoroutine(movePause());
     }

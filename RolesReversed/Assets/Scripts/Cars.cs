@@ -32,7 +32,9 @@ public class Cars : MonoBehaviour
     private LineRenderer rearRightStreakLine;
 
     private GameManager gameManager;
-
+    [SerializeField] ParticleSystem splatterRed;
+    [SerializeField] ParticleSystem splatterRed2;
+    [SerializeField] ParticleSystem splatterGreen;
     void Start()
     {
         gameManager = GameManager.instance;
@@ -96,13 +98,22 @@ public class Cars : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Frog"))
         {
+            Instantiate(splatterRed, collision.gameObject.transform.position, Quaternion.Euler(transform.rotation.x,transform.rotation.y,(transform.eulerAngles.z -270f)));
+            Instantiate(splatterGreen, collision.gameObject.transform.position, Quaternion.Euler(transform.rotation.x, transform.rotation.y, (transform.eulerAngles.z - 270f)));
+            splatterGreen.Play();
+            splatterRed.Play();
+
             Destroy(collision.gameObject);
             gameManager.amountOfFrogs--;
             GameManager.instance.frogsDestroyed++;
             GetComponent<SpriteRenderer>().sprite = carSprites[GameManager.instance.frogsDestroyed];
+            
         }
         if (collision.gameObject.CompareTag("Human"))
         {
+            Instantiate(splatterRed2, collision.gameObject.transform.position, Quaternion.Euler(transform.rotation.x, transform.rotation.y, (transform.eulerAngles.z - 270f)));
+            splatterRed2.Play();
+
             Destroy(collision.gameObject);
             GameManager.instance.health--;
         }
