@@ -13,6 +13,7 @@ public class Cars : MonoBehaviour
     [SerializeField] float Traction = 1;
     private Vector3 MoveForce;
     private float steerInput;
+    private Vector3 previousPosition;
 
     [Header("Streak mark vars")]
     [SerializeField] float StreakLineWidth = 0.1f;
@@ -30,6 +31,7 @@ public class Cars : MonoBehaviour
     {
         // setup lines for skid marks
         InitialLineSetup();
+        previousPosition = this.transform.position;
     }
 
     // Update is called once per frame
@@ -50,6 +52,21 @@ public class Cars : MonoBehaviour
     private void FixedUpdate()
     {
         MovementLogic();
+        PositionCorrection();
+        previousPosition = this.transform.position;
+    }
+
+    private void PositionCorrection()
+    {
+        // Check if there was a collision between the previous position and the current position
+        RaycastHit2D hit = Physics2D.Linecast(previousPosition, this.transform.position);
+
+        if (hit.collider != null && hit.collider.gameObject != this.gameObject)
+        {
+            // A collision occurred
+            Debug.Log("Collision detected with: " + hit.collider.gameObject.name);
+            this.transform.position = previousPosition;
+        }
     }
 
     #region Movement Logic
