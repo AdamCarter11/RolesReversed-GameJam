@@ -159,6 +159,8 @@ MonoBehaviour:
   humanPrefab: {fileID: 0}
   streetLightPrefab: {fileID: 2701401871100077847, guid: b461ea616bd9ac146b351c257e84c6e9, type: 3}
   carObj: {fileID: 1186577390}
+  spawnRange: 15
+  spawnHeight: -10
 --- !u!4 &183901447
 Transform:
   m_ObjectHideFlags: 0
@@ -236,7 +238,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -337,12 +339,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 923041550956632877, guid: 0f257e05e2a3c8c4db9f06b276a0582d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 923041550956632877, guid: 0f257e05e2a3c8c4db9f06b276a0582d, type: 3}
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 923041550956632877, guid: 0f257e05e2a3c8c4db9f06b276a0582d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.85
+      value: -17.57
       objectReference: {fileID: 0}
     - target: {fileID: 923041550956632877, guid: 0f257e05e2a3c8c4db9f06b276a0582d, type: 3}
       propertyPath: m_LocalPosition.y

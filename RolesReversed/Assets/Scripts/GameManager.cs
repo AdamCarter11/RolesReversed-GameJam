@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject carObj;
     [SerializeField] float spawnRange = 5f; // Adjust the spawn range as needed
     [SerializeField] float spawnHeight = -5f; // Adjust the spawn height as needed
+    GameObject streetLightObj;
 
     private void Start()
     {
@@ -43,7 +44,7 @@ public class GameManager : MonoBehaviour
         {
             // first level should always be roughly the same difficulty
             amountOfFrogs++;
-            Instantiate(frogPrefab, new Vector3(Random.Range(-5f, 5f), -5, frogPrefab.transform.position.z), Quaternion.identity);
+            Instantiate(frogPrefab, new Vector3(Random.Range(-8f, spawnRange), spawnHeight, frogPrefab.transform.position.z), Quaternion.identity);
         }
         else
         {
@@ -51,7 +52,7 @@ public class GameManager : MonoBehaviour
             int streetLightOdds = Random.Range(0, 10);
             if (streetLightOdds < 2)
             {
-                Instantiate(streetLightPrefab, new Vector3(-1.5f, 0, streetLightPrefab.transform.position.z), Quaternion.identity);
+                streetLightObj = Instantiate(streetLightPrefab, new Vector3(Random.Range(-2f, 2f), 0, streetLightPrefab.transform.position.z), Quaternion.identity);
             }
 
             // frog(s)
@@ -75,9 +76,16 @@ public class GameManager : MonoBehaviour
         if (amountOfFrogs >= 3) // Limit the number of frogs
             return;
 
+        int spawnCap = 0;
         Vector3 spawnPosition = GetRandomSpawnPosition();
 
-        Collider[] colliders = Physics.OverlapSphere(spawnPosition, 1f); // Adjust the radius as needed
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(spawnPosition, 1f); // Adjust the radius as needed
+        while(colliders.Length > 0 && spawnCap < 3)
+        {
+            spawnPosition = GetRandomSpawnPosition();
+            colliders = Physics2D.OverlapCircleAll(spawnPosition, 1f);
+            spawnCap++;
+        }
 
         if (colliders.Length == 0) // No overlapping objects found
         {
@@ -88,7 +96,7 @@ public class GameManager : MonoBehaviour
 
     Vector3 GetRandomSpawnPosition()
     {
-        return new Vector3(Random.Range(-spawnRange, spawnRange), spawnHeight, frogPrefab.transform.position.z);
+        return new Vector3(Random.Range(-8f, spawnRange), spawnHeight, frogPrefab.transform.position.z);
     }
 
     private void Update()
@@ -107,14 +115,27 @@ public class GameManager : MonoBehaviour
             score++;
             carObj.GetComponent<Cars>().ClearHelper();
             
+            if(streetLightObj != null)
+            {
+                Destroy(streetLightObj);
+            }
             GenerateLevel();
 
             // car
             carObj.GetComponent<Cars>().MoveForceReset();
-            carObj.transform.position = new Vector3(-9, Random.Range(-3, 3), carObj.transform.position.z);
+            carObj.transform.position = new Vector3(-17.5f, Random.Range(-6.5f, 6.5f), carObj.transform.position.z);
             carObj.transform.rotation = Quaternion.Euler(0f, 0f, 270f);
             
             //carObj.GetComponent<Cars>().ClearHelper();
+        }
+        if(carObj.transform.position.x >= 16)
+        {
+            // lose a life and generate level
+            carObj.GetComponent<Cars>().ClearHelper();
+            GenerateLevel();
+            carObj.GetComponent<Cars>().MoveForceReset();
+            carObj.transform.position = new Vector3(-17.5f, Random.Range(-6.5f, 6.5f), carObj.transform.position.z);
+            carObj.transform.rotation = Quaternion.Euler(0f, 0f, 270f);
         }
     }
 

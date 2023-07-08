@@ -11,6 +11,7 @@ public class Cars : MonoBehaviour
     [SerializeField] float Drag = 0.98f;
     [SerializeField] float SteerAngle = 20;
     [SerializeField] float Traction = 1;
+    [SerializeField] float constantSpeed = .2f;
     private Vector3 MoveForce;
     private float steerInput;
     private Vector3 previousPosition;
@@ -96,10 +97,10 @@ public class Cars : MonoBehaviour
     {
         // Moving
         //MoveForce += transform.up * MoveSpeed * Time.deltaTime;
-        float forwardForce = Input.GetAxis("Vertical");
+        float forwardForce = Input.GetAxis("Vertical") + constantSpeed;
         if(forwardForce < 0)
         {
-            forwardForce = 0;
+            forwardForce = 0 + constantSpeed;
             //MoveForce = new Vector3(0, 0, 0); // if we want stopping 
         }
         MoveForce += transform.up * MoveSpeed * forwardForce * Time.deltaTime; // this line if we want the player to be able to control all axis
