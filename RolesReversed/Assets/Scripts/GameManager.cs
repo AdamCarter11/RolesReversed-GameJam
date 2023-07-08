@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public int score;
     [HideInInspector] public int health;
     [HideInInspector] public int amountOfFrogs;
+    [HideInInspector] public float offset = 0;
 
     [SerializeField] GameObject frogPrefab;
     [SerializeField] GameObject humanPrefab;
@@ -32,10 +33,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] float spawnRange = 5f; // Adjust the spawn range as needed
     [SerializeField] float spawnHeight = -5f; // Adjust the spawn height as needed
     GameObject streetLightObj;
+    
 
     private void Start()
     {
         score = 0;
+        health = 3;
         GenerateLevel();
     }
     private void GenerateLevel()
@@ -44,7 +47,7 @@ public class GameManager : MonoBehaviour
         {
             // first level should always be roughly the same difficulty
             amountOfFrogs++;
-            Instantiate(frogPrefab, new Vector3(Random.Range(-8f, spawnRange), spawnHeight, frogPrefab.transform.position.z), Quaternion.identity);
+            Instantiate(frogPrefab, new Vector3(Random.Range(-8f, spawnRange) + offset, spawnHeight, frogPrefab.transform.position.z), Quaternion.identity);
         }
         else
         {
@@ -52,7 +55,7 @@ public class GameManager : MonoBehaviour
             int streetLightOdds = Random.Range(0, 10);
             if (streetLightOdds < 2)
             {
-                streetLightObj = Instantiate(streetLightPrefab, new Vector3(Random.Range(-2f, 2f), 0, streetLightPrefab.transform.position.z), Quaternion.identity);
+                streetLightObj = Instantiate(streetLightPrefab, new Vector3(Random.Range(-2f, 2f) + offset, 0, streetLightPrefab.transform.position.z), Quaternion.identity);
             }
 
             // frog(s)
@@ -96,7 +99,9 @@ public class GameManager : MonoBehaviour
 
     Vector3 GetRandomSpawnPosition()
     {
-        return new Vector3(Random.Range(-8f, spawnRange), spawnHeight, frogPrefab.transform.position.z);
+        float randoX = Random.Range(-8f, spawnRange) + offset;
+        print("frog x: " + randoX);
+        return new Vector3(randoX, spawnHeight, frogPrefab.transform.position.z);
     }
 
     private void Update()
@@ -109,10 +114,13 @@ public class GameManager : MonoBehaviour
             {
                 PlayerPrefs.SetInt("HighScore", score);
             }
+            SceneManager.LoadScene("GameOver");
         }
         if(amountOfFrogs <= 0)
         {
             score++;
+            //carObj.GetComponent<Cars>().endBoundLoad();
+            /*
             carObj.GetComponent<Cars>().ClearHelper();
             
             if(streetLightObj != null)
@@ -122,23 +130,48 @@ public class GameManager : MonoBehaviour
             GenerateLevel();
 
             // car
-            carObj.GetComponent<Cars>().MoveForceReset();
-            carObj.transform.position = new Vector3(-17.5f, Random.Range(-6.5f, 6.5f), carObj.transform.position.z);
-            carObj.transform.rotation = Quaternion.Euler(0f, 0f, 270f);
+            //carObj.GetComponent<Cars>().MoveForceReset();
+            carObj.transform.position = new Vector3(-17.5f + offset, Random.Range(-6.5f, 6.5f), carObj.transform.position.z);
+            //carObj.transform.rotation = Quaternion.Euler(0f, 0f, 270f);
             
             //carObj.GetComponent<Cars>().ClearHelper();
+            */
         }
-        if(carObj.transform.position.x >= 16)
+        /*
+        if(carObj.transform.position.x >= 16 + offset)
         {
             // lose a life and generate level
-            carObj.GetComponent<Cars>().ClearHelper();
-            GenerateLevel();
-            carObj.GetComponent<Cars>().MoveForceReset();
-            carObj.transform.position = new Vector3(-17.5f, Random.Range(-6.5f, 6.5f), carObj.transform.position.z);
-            carObj.transform.rotation = Quaternion.Euler(0f, 0f, 270f);
+            NextLevel();
+        }
+        */
+    }
+    private void ClearAllFrogs()
+    {
+        GameObject[] gameObjectsWithTag = GameObject.FindGameObjectsWithTag("Frog");
+
+        foreach (GameObject obj in gameObjectsWithTag)
+        {
+            Destroy(obj);
         }
     }
+    public void NextLevel()
+    {
+        if (amountOfFrogs > 0)
+            health--;
+        if (streetLightObj != null)
+        {
+            Destroy(streetLightObj);
+        }
+        ClearAllFrogs();
+        //GenerateStuff();
+        //carObj.transform.rotation = Quaternion.Euler(0f, 0f, 270f);
+    }
+    public void GenerateStuff()
+    {
+        carObj.GetComponent<Cars>().ClearHelper();
 
-    
-
+        GenerateLevel();
+        //carObj.GetComponent<Cars>().MoveForceReset();
+        //carObj.transform.position = new Vector3(-17.5f + offset, transform.position.y, carObj.transform.position.z);
+    }
 }

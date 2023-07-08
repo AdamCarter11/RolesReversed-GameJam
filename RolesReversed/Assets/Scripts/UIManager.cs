@@ -26,22 +26,25 @@ public class UIManager : MonoBehaviour
             if(lineNum == 1) 
             {
                 dialogueText.text = "Since We Lost The First Great Frog War In August of 1981 The World Has Gone To Shit.";
+                StopAllCoroutines();
                 StartCoroutine(DisplayLine(dialogueText.text));
             }
             if(lineNum == 2)
             {
                 dialogueText.text = "Thats Why We Called You. The Last Line Of Defense Against The Frogs, The Drifters. An Elite Task Force Trained In Car To Frog Combat.";
+                StopAllCoroutines();
                 StartCoroutine(DisplayLine(dialogueText.text));
             }
             if (lineNum == 3)
             {
                 dialogueText.text = "Now Go Out There And Make Me Proud, Son!";
+                StopAllCoroutines();
                 StartCoroutine(DisplayLine(dialogueText.text));
             }
             if (lineNum == 4)
             {
                 //Change Scene Here
-                
+                SceneManager.LoadScene("MainScene");
             }
 
         }

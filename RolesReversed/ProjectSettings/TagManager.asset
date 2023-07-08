@@ -7,6 +7,7 @@ TagManager:
   - GoodCreep
   - BadCreep
   - Frog
+  - endBound
   layers:
   - Default
   - TransparentFX

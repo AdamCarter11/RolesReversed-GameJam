@@ -12,9 +12,11 @@ public class Cars : MonoBehaviour
     [SerializeField] float SteerAngle = 20;
     [SerializeField] float Traction = 1;
     [SerializeField] float constantSpeed = .2f;
+    [SerializeField] CameraController cameraScript;
     private Vector3 MoveForce;
     private float steerInput;
     private Vector3 previousPosition;
+    private Vector3 tempMoveForce;
 
     [Header("Streak mark vars")]
     [SerializeField] float StreakLineWidth = 0.1f;
@@ -41,10 +43,6 @@ public class Cars : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.rotation.z > -180 )
-        {
-
-        }
         // Movement
 
 
@@ -55,7 +53,20 @@ public class Cars : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        MovementLogic();
+        if (cameraScript.changeScene)
+        {
+            if(MoveForce.x != 0)
+                tempMoveForce = MoveForce;
+            MoveForce = new Vector3(0, 0, 0);
+        }
+        else
+        {
+            if(tempMoveForce.x != 0 && MoveForce.x == 0)
+            {
+                MoveForce = tempMoveForce;
+            }
+            MovementLogic();
+        }
         //PositionCorrection();
         //previousPosition = this.transform.position;
     }
@@ -81,8 +92,17 @@ public class Cars : MonoBehaviour
             Destroy(collision.gameObject);
             gameManager.amountOfFrogs--;
         }
+        if (collision.gameObject.CompareTag("endBound"))
+        {
+
+            endBoundLoad();
+        }
     }
-    
+    public void endBoundLoad()
+    {
+        GameManager.instance.NextLevel();
+        cameraScript.SceneTransition();
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Frog"))
@@ -101,11 +121,12 @@ public class Cars : MonoBehaviour
         if(forwardForce < 0)
         {
             forwardForce = 0 + constantSpeed;
-            //MoveForce = new Vector3(0, 0, 0); // if we want stopping 
+            MoveForce = new Vector3(0, 0, 0); // if we want stopping 
         }
         MoveForce += transform.up * MoveSpeed * forwardForce * Time.deltaTime; // this line if we want the player to be able to control all axis
         transform.position += new Vector3(MoveForce.x, MoveForce.y) * Time.deltaTime;
-        print("car pos: " + transform.position);
+        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -10, 10), transform.position.z);
+        //print("car pos: " + transform.position);
 
         // Steering
         
