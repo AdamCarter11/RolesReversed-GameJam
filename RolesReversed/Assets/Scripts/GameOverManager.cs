@@ -19,7 +19,9 @@ public class GameOverManager : MonoBehaviour
        if(Input.GetKeyDown(KeyCode.R)) 
         {
             //Change Scene Here
-            SceneManager.LoadScene("MainGame");
+            GameManager.instance.ResetVars();
+            SceneManager.LoadScene("MainScene");
+            GameManager.instance.GenerateStuff();
         }
     }
 }

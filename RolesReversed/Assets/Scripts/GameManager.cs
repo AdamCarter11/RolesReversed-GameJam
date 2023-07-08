@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public int health;
     [HideInInspector] public int amountOfFrogs;
     [HideInInspector] public float offset = 0;
+    [HideInInspector] public int frogsDestroyed;
 
     [SerializeField] GameObject frogPrefab;
     [SerializeField] GameObject humanPrefab;
@@ -52,11 +53,13 @@ public class GameManager : MonoBehaviour
         else
         {
             // streetlights
+            /*
             int streetLightOdds = Random.Range(0, 10);
             if (streetLightOdds < 2)
             {
                 streetLightObj = Instantiate(streetLightPrefab, new Vector3(Random.Range(-2f, 2f) + offset, 0, streetLightPrefab.transform.position.z), Quaternion.identity);
             }
+            */
 
             // frog(s)
             SpawnFrog();
@@ -116,27 +119,7 @@ public class GameManager : MonoBehaviour
             }
             SceneManager.LoadScene("GameOver");
         }
-        if(amountOfFrogs <= 0)
-        {
-            score++;
-            //carObj.GetComponent<Cars>().endBoundLoad();
-            /*
-            carObj.GetComponent<Cars>().ClearHelper();
-            
-            if(streetLightObj != null)
-            {
-                Destroy(streetLightObj);
-            }
-            GenerateLevel();
-
-            // car
-            //carObj.GetComponent<Cars>().MoveForceReset();
-            carObj.transform.position = new Vector3(-17.5f + offset, Random.Range(-6.5f, 6.5f), carObj.transform.position.z);
-            //carObj.transform.rotation = Quaternion.Euler(0f, 0f, 270f);
-            
-            //carObj.GetComponent<Cars>().ClearHelper();
-            */
-        }
+        
         /*
         if(carObj.transform.position.x >= 16 + offset)
         {
@@ -162,6 +145,12 @@ public class GameManager : MonoBehaviour
         {
             Destroy(streetLightObj);
         }
+        if (amountOfFrogs <= 0)
+        {
+            score++;
+            carObj.GetComponent<Cars>().IncreaseSpeed();
+
+        }
         ClearAllFrogs();
         //GenerateStuff();
         //carObj.transform.rotation = Quaternion.Euler(0f, 0f, 270f);
@@ -173,5 +162,11 @@ public class GameManager : MonoBehaviour
         GenerateLevel();
         //carObj.GetComponent<Cars>().MoveForceReset();
         //carObj.transform.position = new Vector3(-17.5f + offset, transform.position.y, carObj.transform.position.z);
+    }
+    public void ResetVars()
+    {
+        score = 0;
+        health = 3;
+        frogsDestroyed = 0;
     }
 }

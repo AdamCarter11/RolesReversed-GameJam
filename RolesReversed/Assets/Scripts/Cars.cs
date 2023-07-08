@@ -24,6 +24,7 @@ public class Cars : MonoBehaviour
     [SerializeField] int MaxStreakPoints = 100;
     [SerializeField] float StreakSmoothness = 0.2f;
     [SerializeField] float ClearSpeed = 10f;
+    [SerializeField] Sprite[] carSprites;
     private bool isDrifting;
     private List<Vector3> rearLeftStreakPoints = new List<Vector3>();
     private List<Vector3> rearRightStreakPoints = new List<Vector3>();
@@ -83,7 +84,12 @@ public class Cars : MonoBehaviour
             this.transform.position = previousPosition;
         }
     }
-
+    public void IncreaseSpeed()
+    {
+        MoveSpeed += .5f;
+        MaxSpeed += .5f;
+        cameraScript.speedIncrease += 1f;
+    }
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -91,6 +97,8 @@ public class Cars : MonoBehaviour
         {
             Destroy(collision.gameObject);
             gameManager.amountOfFrogs--;
+            GameManager.instance.frogsDestroyed++;
+            GetComponent<SpriteRenderer>().sprite = carSprites[GameManager.instance.frogsDestroyed];
         }
         if (collision.gameObject.CompareTag("endBound"))
         {

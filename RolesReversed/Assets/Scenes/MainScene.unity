@@ -233,6 +233,7 @@ MonoBehaviour:
   health: 0
   amountOfFrogs: 0
   offset: 0
+  frogsDestroyed: 0
   frogPrefab: {fileID: 3028682529931391021, guid: 020af0dd4cd7d344cb75373c3df8ce12, type: 3}
   humanPrefab: {fileID: 0}
   streetLightPrefab: {fileID: 2701401871100077847, guid: b461ea616bd9ac146b351c257e84c6e9, type: 3}
@@ -632,11 +633,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5945774032931273331, guid: 0f257e05e2a3c8c4db9f06b276a0582d, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 3
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -5945774032931273331, guid: 0f257e05e2a3c8c4db9f06b276a0582d, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 3
+      value: 2.6875
       objectReference: {fileID: 0}
     - target: {fileID: 923041550956632877, guid: 0f257e05e2a3c8c4db9f06b276a0582d, type: 3}
       propertyPath: m_RootOrder
@@ -693,7 +694,7 @@ PrefabInstance:
     - target: {fileID: 990787464965546370, guid: 0f257e05e2a3c8c4db9f06b276a0582d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ca5e6dea2fecd1a4bb66c40d423fc328, type: 3}
+      objectReference: {fileID: -1575138998, guid: 52964e3877f1261478317ffe4bc3963b, type: 3}
     - target: {fileID: 990787464965546370, guid: 0f257e05e2a3c8c4db9f06b276a0582d, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -722,6 +723,70 @@ PrefabInstance:
       propertyPath: cameraScript
       value: 
       objectReference: {fileID: 609078937}
+    - target: {fileID: 2596887361335623592, guid: 0f257e05e2a3c8c4db9f06b276a0582d, type: 3}
+      propertyPath: carSprites.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2596887361335623592, guid: 0f257e05e2a3c8c4db9f06b276a0582d, type: 3}
+      propertyPath: carSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: -1575138998, guid: 52964e3877f1261478317ffe4bc3963b, type: 3}
+    - target: {fileID: 2596887361335623592, guid: 0f257e05e2a3c8c4db9f06b276a0582d, type: 3}
+      propertyPath: carSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: -1465517534, guid: 52964e3877f1261478317ffe4bc3963b, type: 3}
+    - target: {fileID: 2596887361335623592, guid: 0f257e05e2a3c8c4db9f06b276a0582d, type: 3}
+      propertyPath: carSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: -121600286, guid: 52964e3877f1261478317ffe4bc3963b, type: 3}
+    - target: {fileID: 2596887361335623592, guid: 0f257e05e2a3c8c4db9f06b276a0582d, type: 3}
+      propertyPath: carSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 255835161, guid: 52964e3877f1261478317ffe4bc3963b, type: 3}
+    - target: {fileID: 2596887361335623592, guid: 0f257e05e2a3c8c4db9f06b276a0582d, type: 3}
+      propertyPath: carSprites.Array.data[4]
+      value: 
+      objectReference: {fileID: 153900390, guid: 52964e3877f1261478317ffe4bc3963b, type: 3}
+    - target: {fileID: 2596887361335623592, guid: 0f257e05e2a3c8c4db9f06b276a0582d, type: 3}
+      propertyPath: carSprites.Array.data[5]
+      value: 
+      objectReference: {fileID: -2108201866, guid: 52964e3877f1261478317ffe4bc3963b, type: 3}
+    - target: {fileID: 2596887361335623592, guid: 0f257e05e2a3c8c4db9f06b276a0582d, type: 3}
+      propertyPath: carSprites.Array.data[6]
+      value: 
+      objectReference: {fileID: -693848651, guid: 52964e3877f1261478317ffe4bc3963b, type: 3}
+    - target: {fileID: 2596887361335623592, guid: 0f257e05e2a3c8c4db9f06b276a0582d, type: 3}
+      propertyPath: carSprites.Array.data[7]
+      value: 
+      objectReference: {fileID: 2052345771, guid: 52964e3877f1261478317ffe4bc3963b, type: 3}
+    - target: {fileID: 2596887361335623592, guid: 0f257e05e2a3c8c4db9f06b276a0582d, type: 3}
+      propertyPath: carSprites.Array.data[8]
+      value: 
+      objectReference: {fileID: -41142845, guid: 52964e3877f1261478317ffe4bc3963b, type: 3}
+    - target: {fileID: 2596887361335623592, guid: 0f257e05e2a3c8c4db9f06b276a0582d, type: 3}
+      propertyPath: carSprites.Array.data[9]
+      value: 
+      objectReference: {fileID: 1976451767, guid: 52964e3877f1261478317ffe4bc3963b, type: 3}
+    - target: {fileID: 2596887361335623592, guid: 0f257e05e2a3c8c4db9f06b276a0582d, type: 3}
+      propertyPath: carSprites.Array.data[10]
+      value: 
+      objectReference: {fileID: -1232794766, guid: 52964e3877f1261478317ffe4bc3963b, type: 3}
+    - target: {fileID: 2596887361335623592, guid: 0f257e05e2a3c8c4db9f06b276a0582d, type: 3}
+      propertyPath: carSprites.Array.data[11]
+      value: 
+      objectReference: {fileID: 783369406, guid: 52964e3877f1261478317ffe4bc3963b, type: 3}
+    - target: {fileID: 2596887361335623592, guid: 0f257e05e2a3c8c4db9f06b276a0582d, type: 3}
+      propertyPath: carSprites.Array.data[12]
+      value: 
+      objectReference: {fileID: 140545155, guid: 52964e3877f1261478317ffe4bc3963b, type: 3}
+    - target: {fileID: 2596887361335623592, guid: 0f257e05e2a3c8c4db9f06b276a0582d, type: 3}
+      propertyPath: carSprites.Array.data[13]
+      value: 
+      objectReference: {fileID: -959855002, guid: 52964e3877f1261478317ffe4bc3963b, type: 3}
+    - target: {fileID: 2596887361335623592, guid: 0f257e05e2a3c8c4db9f06b276a0582d, type: 3}
+      propertyPath: carSprites.Array.data[14]
+      value: 
+      objectReference: {fileID: 439780741, guid: 52964e3877f1261478317ffe4bc3963b, type: 3}
     - target: {fileID: 4440707295799167616, guid: 0f257e05e2a3c8c4db9f06b276a0582d, type: 3}
       propertyPath: m_Name
       value: Car

@@ -7,6 +7,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] float speed = 6f;
+    [HideInInspector] public float speedIncrease = 0.0f;
     public bool changeScene = false;
     private Vector3 target;
     [SerializeField] GameObject topBound;
@@ -25,7 +26,7 @@ public class CameraController : MonoBehaviour
     {
         if (changeScene)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, target, (speed + speedIncrease) * Time.deltaTime);
             if(transform.position == target)
             {
                 topBound.transform.position = topBound.transform.position + new Vector3(changeVal, 0, 0);

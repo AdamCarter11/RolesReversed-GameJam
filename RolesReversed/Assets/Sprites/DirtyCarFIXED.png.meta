@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -108,7 +108,322 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: DirtyCarFIXED_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 12
+        width: 43
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4444273b35d496547b8c5c1b84d0e186
+      internalID: 596688148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DirtyCarFIXED_1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 12
+        width: 43
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9784fa5ee3cb94846b5ce7a14e860677
+      internalID: 508878769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DirtyCarFIXED_2
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 12
+        width: 43
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26a1606e01b57b3449e0426f97d77d06
+      internalID: -73624185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DirtyCarFIXED_3
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 12
+        width: 43
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8faa567c72a0ac94b984ca21006db454
+      internalID: -1827026296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DirtyCarFIXED_4
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 12
+        width: 43
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16c827b107fb8c4448df1ba94d412bd2
+      internalID: 1757240589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DirtyCarFIXED_5
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 12
+        width: 43
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7384577c957a29f48856cd547e3184e0
+      internalID: -320623587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DirtyCarFIXED_6
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 12
+        width: 43
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af781eb3c15f272428f8fe5083dad27d
+      internalID: 748369020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DirtyCarFIXED_7
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 12
+        width: 43
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33cb580f899bdbc408da6e6f3f2a1de4
+      internalID: 1160592148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DirtyCarFIXED_8
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 12
+        width: 43
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2550f3b168e58c4fbcc766ab7bf635f
+      internalID: 615364656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DirtyCarFIXED_9
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 12
+        width: 43
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96ab5b728df372a498bd3dcbaf8f60a0
+      internalID: -880752422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DirtyCarFIXED_10
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 12
+        width: 43
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 699fd62f9742c7a4ba6c61c3bf3cd594
+      internalID: -976176213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DirtyCarFIXED_11
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 12
+        width: 43
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13dca60d417369c479438fa011ffb981
+      internalID: -1075904565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DirtyCarFIXED_12
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 12
+        width: 43
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c89e374c48a1c6b4db43bb31f22aa2fc
+      internalID: -597318418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DirtyCarFIXED_13
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 12
+        width: 43
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2df69fd638a148744a572889e17375d5
+      internalID: 1346281699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DirtyCarFIXED_14
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 12
+        width: 43
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f00ad343f624ca4fa73d911064d86e0
+      internalID: 1809144482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +434,22 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      DirtyCarFIXED_0: 596688148
+      DirtyCarFIXED_1: 508878769
+      DirtyCarFIXED_10: -976176213
+      DirtyCarFIXED_11: -1075904565
+      DirtyCarFIXED_12: -597318418
+      DirtyCarFIXED_13: 1346281699
+      DirtyCarFIXED_14: 1809144482
+      DirtyCarFIXED_2: -73624185
+      DirtyCarFIXED_3: -1827026296
+      DirtyCarFIXED_4: 1757240589
+      DirtyCarFIXED_5: -320623587
+      DirtyCarFIXED_6: 748369020
+      DirtyCarFIXED_7: 1160592148
+      DirtyCarFIXED_8: 615364656
+      DirtyCarFIXED_9: -880752422
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
