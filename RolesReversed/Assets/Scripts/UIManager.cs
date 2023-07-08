@@ -35,7 +35,7 @@ public class UIManager : MonoBehaviour
             }
             if (lineNum == 3)
             {
-                dialogueText.text = "Now Go Out There And Make Me Proud Son!";
+                dialogueText.text = "Now Go Out There And Make Me Proud, Son!";
                 StartCoroutine(DisplayLine(dialogueText.text));
             }
             if (lineNum == 4)
