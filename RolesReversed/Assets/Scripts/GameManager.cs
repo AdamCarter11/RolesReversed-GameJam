@@ -181,7 +181,7 @@ public class GameManager : MonoBehaviour
         if (amountOfFrogs > 0)
         {
             health--;
-            scoreIncrease = 0;
+            scoreIncrease -= amountOfFrogs;
         } 
         if (streetLightObj != null)
         {
@@ -190,11 +190,12 @@ public class GameManager : MonoBehaviour
         if (amountOfFrogs <= 0)
         {
             carObj = GameObject.FindGameObjectWithTag("Player");
-            score += scoreIncrease;
-            scoreIncrease = 0;
+            
             carObj.GetComponent<Cars>().IncreaseSpeed();
 
         }
+        score += scoreIncrease;
+        scoreIncrease = 0;
         ClearAllFrogs();
         //GenerateStuff();
         //carObj.transform.rotation = Quaternion.Euler(0f, 0f, 270f);

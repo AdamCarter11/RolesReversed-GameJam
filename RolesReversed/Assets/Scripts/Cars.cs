@@ -93,7 +93,7 @@ public class Cars : MonoBehaviour
     {
         MoveSpeed += .5f;
         MaxSpeed += .5f;
-        constantSpeed += .1f;
+        constantSpeed += .06f;
         cameraScript.speedIncrease += 1f;
     }
     
@@ -109,7 +109,10 @@ public class Cars : MonoBehaviour
             Destroy(collision.gameObject);
             gameManager.amountOfFrogs--;
             GameManager.instance.frogsDestroyed++;
-            GetComponent<SpriteRenderer>().sprite = carSprites[GameManager.instance.frogsDestroyed];
+            int frameCount = GameManager.instance.frogsDestroyed;
+            if (frameCount > 14)
+                frameCount = 14;
+            GetComponent<SpriteRenderer>().sprite = carSprites[frameCount];
 
             frogSplat.Play();
             cameraScript.gameObject.GetComponent<ScreenShake>().TriggerShake();
