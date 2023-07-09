@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ScreenShake : MonoBehaviour
@@ -7,16 +8,13 @@ public class ScreenShake : MonoBehaviour
     [SerializeField] float shakeMagnitude;
     [SerializeField] float dampeningSpeed;
     [HideInInspector] public Vector3 initialPos;
+    [SerializeField] private CameraController cmController;
     float shakeDuration;
-    //Transform transformVar;
+
+    private bool sceneTransitioned = false;
 
     void Start()
     {
-        /*
-        if(transform == null){
-            transformVar = GetComponent<Transform>();
-        }
-        */
         initialPos = transform.localPosition;
     }
 
@@ -29,13 +27,22 @@ public class ScreenShake : MonoBehaviour
         }
         else
         {
-            transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, initialPos.z);
+            if (!cmController.changeScene)
+            {
+                transform.localPosition = new Vector3(initialPos.x, initialPos.y, initialPos.z);
+            }
+            else
+            {
+                initialPos = transform.position;
+            }
             shakeDuration = 0f;
-            //transform.localPosition = initialPos;
         }
+
+        this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -10);
     }
     public void TriggerShake()
     {
         shakeDuration = .5f;
+        initialPos = transform.position;
     }
 }
