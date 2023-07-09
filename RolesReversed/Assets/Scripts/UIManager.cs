@@ -11,12 +11,17 @@ public class UIManager : MonoBehaviour
     private float typingSpeed = 0.04f;
     [SerializeField] AudioSource notificationSound;
     private int lineNum = 0;
+    [SerializeField] Sprite[] frogFrames;
+    [SerializeField] Image frogImage;
+    bool frameChange = true;
+
     // Start is called before the first frame update
     void Start()
     {
         dialogueText.text = "Welcome To The Frontlines Soldier. Are You Ready To Serve Your Country?";
         StartCoroutine(DisplayLine(dialogueText.text));
-        
+        StartCoroutine(FrogFrameChange());
+
     }
 
     // Update is called once per frame
@@ -32,18 +37,25 @@ public class UIManager : MonoBehaviour
                 dialogueText.text = "Since We Lost The First Great Frog War In August of 1981 The World Has Gone To Shit.";
                 StopAllCoroutines();
                 StartCoroutine(DisplayLine(dialogueText.text));
+                frameChange = true;
+                StartCoroutine(FrogFrameChange());
             }
             if(lineNum == 2)
             {
                 dialogueText.text = "Thats Why We Called You. The Last Line Of Defense Against The Frogs, The Drifters. An Elite Task Force Trained In Car To Frog Combat.";
                 StopAllCoroutines();
                 StartCoroutine(DisplayLine(dialogueText.text));
+                frameChange = true;
+                StartCoroutine(FrogFrameChange());
+                
             }
             if (lineNum == 3)
             {
                 dialogueText.text = "Now Go Out There And Make Me Proud, Son!";
                 StopAllCoroutines();
                 StartCoroutine(DisplayLine(dialogueText.text));
+                frameChange = true;
+                StartCoroutine(FrogFrameChange());
             }
             if (lineNum == 4)
             {
@@ -67,9 +79,23 @@ public class UIManager : MonoBehaviour
             yield return new WaitForSeconds(typingSpeed);
             
         }
+        StopCoroutine(FrogFrameChange());
+        frameChange = false;
+        frogImage.sprite = frogFrames[0];
         if (lineNum == 1)
         {
             dialogueText.text = "Since We Lost The First Great Frog War In August of 1981 The World Has Gone To <color=red>Shit</color>.";
+            
+        }
+    }
+    IEnumerator FrogFrameChange()
+    {
+        int i = 1;
+        while (frameChange)
+        {
+            frogImage.sprite = frogFrames[i % 2];
+            yield return new WaitForSeconds(.3f);
+            i++;
         }
     }
 }
