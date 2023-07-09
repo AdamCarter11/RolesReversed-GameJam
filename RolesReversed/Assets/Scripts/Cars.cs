@@ -112,6 +112,7 @@ public class Cars : MonoBehaviour
             GetComponent<SpriteRenderer>().sprite = carSprites[GameManager.instance.frogsDestroyed];
 
             frogSplat.Play();
+            cameraScript.gameObject.GetComponent<ScreenShake>().TriggerShake();
             
         }
         if (collision.gameObject.CompareTag("Human"))
@@ -123,6 +124,7 @@ public class Cars : MonoBehaviour
             GameManager.instance.health--;
 
             humanSplat.Play();
+            cameraScript.gameObject.GetComponent<ScreenShake>().TriggerShake();
         }
         if (collision.gameObject.CompareTag("endBound"))
         {
