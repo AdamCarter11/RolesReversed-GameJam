@@ -755,7 +755,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 609078932}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c05064e09740c746a6f0288e5c85769, type: 3}
   m_Name: 
@@ -763,6 +763,7 @@ MonoBehaviour:
   shakeMagnitude: 0.2
   dampeningSpeed: 2
   initialPos: {x: 0, y: 0, z: 0}
+  cmController: {fileID: 609078937}
 --- !u!1 &621433510
 GameObject:
   m_ObjectHideFlags: 0
